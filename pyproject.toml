@@ -1,5 +1,6 @@
 [project]
 name = "tim-tut"
+# entrypoint = "main:app"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -10,4 +11,5 @@ dependencies = [
     "fastapi-users[sqlalchemy]>=15.0.4",
     "imagekitio>=5.2.0",
     "uvicorn[standard]>=0.41.0",
+    "typing >=3.5.0"
 ]
