@@ -79,3 +79,10 @@ async def read_data(itemid: int):
 # here
 # postid -> Path parameter
 # sequence -> Query parameter
+#
+# We can also set default values of query paramter here like
+# sequence:int = 0
+# set the value of a parameter as NONE to make it optional (remember to make a type annotation for none as welll as other one like:)
+# def func(parameter:str | None = None):
+#   pass
+# here the paramter is optional
