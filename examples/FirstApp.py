@@ -86,6 +86,9 @@ async def read_data(itemid: int):
 # def func(parameter:str | None = None):
 #   pass
 # here the paramter is optional
-
+# (by default paramter is REQUIRED)
 
 # Continuation https://fastapi.tiangolo.com/tutorial/query-params/
+# We can have as many query parameters as needed
+#
+#
