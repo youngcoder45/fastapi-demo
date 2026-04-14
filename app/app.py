@@ -36,7 +36,7 @@ async def read_data(itemid: int):
 @app.post("/upload")
 async def upload_file(
     file: UploadFile = File(...),
-    caption: str = Form(...),
+    caption: str = Form(""),
     session: AsyncSession = Depends(get_async_session),
 ):
     post = Post(
@@ -51,7 +51,20 @@ async def upload_file(
 @app.get("/feed")
 async def get_feed(session: AsyncSession = Depends(get_async_session)):
     result = await session.execute(select(Post).order_by(Post.created_at.desc()))
-    post = [row[0] for row in result.all()]
+    posts = [row[0] for row in result.all()]
+    post_data = []
+    for post in posts:
+        post_data.append(
+            {
+                "id": str(post.id),
+                "caption": post.caption,
+                "url": post.url,
+                "file_type": post.file_type,
+                "file_name": post.file_name,
+                "created_at": post.created_at.isoformat(),
+            }
+        )
+        return {"posts": post_data}
 
 
 # Pydantic
